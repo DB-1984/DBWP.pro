@@ -80,10 +80,10 @@ export default function Home() {
     <div className="min-h-screen w-full bg-white text-zinc-950 antialiased">
       {/* Navigation Header */}
       <header className="sticky top-0 z-50 w-full bg-white/90 shadow-xs backdrop-blur">
-        <div className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between px-5 sm:px-8">
+        <div className="mx-auto flex h-14 w-full w-full items-center justify-between px-5 sm:px-8">
           <a
             href="#top"
-            className="flex items-center gap-2 text-base font-bold tracking-tighter text-zinc-950"
+            className="flex items-center gap-2 text-sm font-bold tracking-tighter text-zinc-950"
           >
             <Image
               src="/logo.png"
@@ -93,7 +93,7 @@ export default function Home() {
               className="h-8 w-auto"
               priority
             />
-            <span>dbwp.pro</span>
+            <span>dbWP</span>
           </a>
 
           <nav className="hidden items-center gap-8 text-sm font-medium text-zinc-600 md:flex">
@@ -129,8 +129,8 @@ export default function Home() {
       {/* Main Page Content */}
       <main id="top" className="w-full">
         {/* Hero Section */}
-        <section className="relative isolate flex min-h-[calc(100dvh-56px)] items-center justify-center overflow-hidden bg-[url('/fire.png')] bg-cover bg-center px-5 py-16 shadow-sm">
-          <div className="hero-text relative z-10 shadow-lg mx-auto w-full max-w-5xl bg-white/50 rounded-2xl p-7 text-center">
+        <section className="relative isolate flex items-center justify-center overflow-hidden bg-[url('/fire.png')] bg-cover bg-center px-5 py-7 shadow-sm">
+          <div className="hero-text relative z-10 shadow-lg mx-auto w-content bg-white/50 rounded-2xl p-7 text-center">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-zinc-50 px-4 py-1.5 text-xs font-semibold text-zinc-700 shadow-sm">
               <span className="size-2 rounded-full bg-emerald-600" />
               Independent web design &amp; development
@@ -152,11 +152,11 @@ export default function Home() {
                 />
                 <h1 className="mx-auto max-w-4xl text-4xl font-extrabold text-zinc-800 tracking-tight sm:text-6xl md:text-7xl">
                   Your Website <br />
-                  <span className="text-zinc-50">built with flair.</span>
+                  <span className="text-zinc-200">built with flair.</span>
                 </h1>
               </div>
 
-              <p className="mx-auto mt-6 max-w-lg text-sm font-base text-zinc-800 sm:text-lg">
+              <p className="mx-auto mt-6 max-w-xl text-sm font-base text-zinc-800 sm:text-lg">
                 Thoughtful WordPress and WooCommerce sites, custom features, and
                 straightforward help when something isn&apos;t working.
               </p>
@@ -190,8 +190,7 @@ export default function Home() {
               <div className="flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm font-bold text-zinc-700 sm:gap-10">
                 <span>WordPress</span>
                 <span>WooCommerce</span>
-                <span>Custom blocks</span>
-                <span>React &amp; Next.js</span>
+                <span>Custom Blocks</span>
               </div>
             </div>
           </div>
@@ -401,9 +400,20 @@ export default function Home() {
       {/* Footer */}
       <footer className="w-full border-t border-zinc-200 bg-white py-8">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-5 text-sm text-zinc-500 sm:px-8">
-          <div className="flex items-center gap-2 font-bold text-zinc-950">
-            dbwp.pro
-          </div>
+            <a
+            href="#top"
+            className="flex items-center gap-2 text-sm font-bold tracking-tighter text-zinc-950"
+          >
+            <Image
+              src="/logo.png"
+              alt="DBWP Logo"
+              width={32}
+              height={32}
+              className="h-8 w-auto"
+              priority
+            />
+            <span>dbWP</span>
+          </a>
           <p className="text-xs">Websites with a reason to exist.</p>
           <a
             href="#top"
