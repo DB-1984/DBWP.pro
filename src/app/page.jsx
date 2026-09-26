@@ -5,7 +5,7 @@ import ContactForm from "@/components/ContactForm";
 import MobileMenu from "@/components/MobileMenu";
 import Background from "@/components/Background";
 import { motion } from "motion/react";
-import { ArrowUpRight, ArrowDown, ChevronUp } from "lucide-react";
+import { ArrowUpRight, ArrowDown, ChevronUp, MapPinned, Blocks } from "lucide-react";
 
 const services = [
   {
@@ -38,7 +38,7 @@ const work = [
     description:
       "A location-based delivery calculator that turns distance into a clear quote.",
     stack: "Next.js · Maps · API integration",
-    glyph: "↗",
+    glyph: "mapper",
   },
   {
     number: "02 / WORDPRESS",
@@ -46,9 +46,14 @@ const work = [
     description:
       "A collection of custom WordPress blocks, including related content and live search.",
     stack: "Block editor · REST API · JavaScript",
-    glyph: "▦",
+    glyph: "blockader",
   },
 ];
+
+const projectIcons = {
+  mapper: MapPinned,
+  blockader: Blocks,
+};
 
 const steps = [
   {
@@ -74,11 +79,11 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full bg-white text-zinc-950 antialiased">
       {/* Navigation Header */}
-      <header className="sticky top-0 z-50 w-full bg-white/90 shadow-lg backdrop-blur">
+      <header className="sticky top-0 z-50 w-full bg-white/90 shadow-xs backdrop-blur">
         <div className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between px-5 sm:px-8">
           <a
             href="#top"
-            className="flex items-center gap-2 text-lg font-extrabold tracking-tight text-zinc-950"
+            className="flex items-center gap-2 text-base font-bold tracking-tighter text-zinc-950"
           >
             <Image
               src="/logo.png"
@@ -125,7 +130,7 @@ export default function Home() {
       <main id="top" className="w-full">
         {/* Hero Section */}
         <section className="relative isolate flex min-h-[calc(100dvh-56px)] items-center justify-center overflow-hidden bg-[url('/fire.png')] bg-cover bg-center px-5 py-16 shadow-sm">
-          <div className="hero-text relative z-10 mx-auto w-full max-w-5xl rounded-2xl p-7 text-center">
+          <div className="hero-text relative z-10 shadow-lg mx-auto w-full max-w-5xl bg-white/50 rounded-2xl p-7 text-center">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-zinc-50 px-4 py-1.5 text-xs font-semibold text-zinc-700 shadow-sm">
               <span className="size-2 rounded-full bg-emerald-600" />
               Independent web design &amp; development
@@ -151,7 +156,7 @@ export default function Home() {
                 </h1>
               </div>
 
-              <p className="mx-auto mt-6 max-w-xl text-sm text-zinc-50 sm:text-xl">
+              <p className="mx-auto mt-6 max-w-lg text-sm font-base text-zinc-800 sm:text-lg">
                 Thoughtful WordPress and WooCommerce sites, custom features, and
                 straightforward help when something isn&apos;t working.
               </p>
@@ -180,11 +185,9 @@ export default function Home() {
         {/* Tech Stack Banner */}
         <section className="w-full border-y border-zinc-200 bg-zinc-50/80 py-8">
           <div className="mx-auto max-w-5xl px-5 sm:px-8">
-            <div className="flex flex-wrap items-center justify-center gap-8 text-center sm:justify-between">
-              <p className="text-xs font-bold tracking-widest text-zinc-400 uppercase">
-                Working across
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-bold text-zinc-700 sm:gap-10">
+            <div className="flex flex-wrap items-center justify-center gap-8 text-center">
+             
+              <div className="flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm font-bold text-zinc-700 sm:gap-10">
                 <span>WordPress</span>
                 <span>WooCommerce</span>
                 <span>Custom blocks</span>
@@ -286,14 +289,16 @@ export default function Home() {
                   </div>
 
                   <div className="grid gap-6 md:grid-cols-2">
-                    {work.map((project) => (
+                    {work.map((project) => {
+                      const Icon = projectIcons[project.glyph];
+                      return (
                       <div
                         key={project.name}
-                        className="rounded-2xl border border-zinc-200 bg-white p-7 shadow-sm transition-shadow hover:shadow-md"
+                        className="rounded-2xl border border-zinc-200 bg-white/50 p-7 shadow-sm transition-shadow hover:shadow-md"
                       >
                         <div className="flex items-center justify-between text-xs font-bold tracking-wider text-zinc-400">
                           <span>{project.number}</span>
-                          <span className="text-lg">{project.glyph}</span>
+                          <Icon aria-hidden="true" className="size-5 text-zinc-500" strokeWidth={1.8} />
                         </div>
                         <h3 className="mt-5 text-2xl font-bold tracking-tight text-zinc-950">
                           {project.name}
@@ -305,7 +310,8 @@ export default function Home() {
                           {project.stack}
                         </div>
                       </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               </section>
@@ -371,7 +377,7 @@ export default function Home() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="mx-auto max-w-4xl rounded-2xl border border-zinc-200 bg-white/95 p-7 shadow-lg sm:p-10">
+            <div className="mx-auto max-w-4xl rounded-2xl bg-white/50 p-7 shadow-lg sm:p-10">
               <p className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-700">
                 Start a conversation
               </p>
@@ -386,7 +392,7 @@ export default function Home() {
                 technical brief.
               </p>
 
-              <ContactForm />
+              <ContactForm Icon={ArrowUpRight}/>
             </div>
           </motion.div>
         </section>
